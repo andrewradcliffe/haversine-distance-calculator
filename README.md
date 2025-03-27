@@ -6,6 +6,15 @@ A simple Python app built with [tkinter](https://docs.python.org/3/library/tkint
 
 Takes in two co-ordinates (in decimal form) and calculates the distance between the two points using the [Haversine Distance Formula](https://en.wikipedia.org/wiki/Haversine_formula) in Nautical Miles
 
+### Installation
+
+To run this app, you need to install the dependencies first using PIP:
+
+```bash
+pip install -r requirements.txt
+python main.py
+```
+
 ### Dependencies
 
 - [tkinter](https://docs.python.org/3/library/tkinter.html)
