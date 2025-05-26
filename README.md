@@ -15,12 +15,11 @@ pip install -r requirements.txt
 python main.py
 ```
 
-### Dependencies
+### Release
 
-- [tkinter](https://docs.python.org/3/library/tkinter.html)
-- [sv_ttk](https://github.com/rdbende/Sun-Valley-ttk-theme)
-- [pywinstyles](https://github.com/Akascape/py-window-styles)
+Check releases for built executable (currently Windows only)
 
 ## Future Work
 
 - Allow user to select a distance unit
+- Add linux to release pipeline

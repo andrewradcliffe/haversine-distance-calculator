@@ -5,6 +5,7 @@ import sv_ttk
 import pywinstyles
 import sys
 from math import sin, cos, sqrt, atan2, radians
+import os
 
 def haversine_distance(lat1, lon1, lat2, lon2):
     # Convert latitude and longitude from degrees to radians
@@ -34,6 +35,15 @@ def apply_theme_to_titlebar(root):
         root.wm_attributes("-alpha", 0.99)
         root.wm_attributes("-alpha", 1)
 
+def resource_path(rel_path):
+    """ Get absolute path to resource for PyInstaller """
+    try:
+        # temp folder created by PyInstaller
+        base_path = sys._MEIPASS
+    except AttributeError:
+        base_path = os.path.abspath(".")
+    return os.path.join(base_path, rel_path)
+
 def main():
     def process_coordinates():
         if not lat1_var.get() or not lon1_var.get() or not lat2_var.get() or not lon2_var.get():
@@ -51,6 +61,7 @@ def main():
 
     root = tkinter.Tk()
     root.title("Haversine Distance Calculator")
+    root.iconbitmap(resource_path("icon.ico"))
 
     root.option_add("*TButton.Font", "Arial 12")
     root.option_add("*TLabel.Font", "Arial 12")
@@ -63,7 +74,7 @@ def main():
     lon1_var = tkinter.StringVar()
     lat2_var = tkinter.StringVar()
     lon2_var = tkinter.StringVar()
-    result_var = tkinter.StringVar(value="Result: ")
+    result_var = tkinter.StringVar(value="")
 
     # Labels and Inputs
     ttk.Label(tt_frame, text="Latitude 1:").grid(row=0, column=0, sticky=tkinter.W, padx=5, pady=10)
@@ -87,11 +98,6 @@ def main():
     sv_ttk.set_theme("dark")
     apply_theme_to_titlebar(root)
     root.update_idletasks()
-    # width = 
-    # height = root.winfo_height()
-    # root.minsize(width, height)
-    # root.maxsize(width, height)
-    # root.resizable(False, False)
     root.mainloop()
 
 if __name__ == "__main__":
